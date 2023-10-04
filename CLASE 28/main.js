@@ -11,11 +11,6 @@ async function requestAsyncAwait()
 }
 
 
-
-
-
-
-
 fetch("https://api.thecatapi.com/v1/images/search").then((res)=>{
 //console.log(res)
 //const respuestajson= res.json().then((resjson)=> console.log(resjson)).catch((error)=>console.log("error transformando la inforamcion"))
