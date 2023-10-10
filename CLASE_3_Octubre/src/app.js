@@ -3,7 +3,7 @@ const colors=require("colors")
 const express=require("express")
 const morgan=require("morgan")
 const router=express.Router()
-const Routes=require('./routes/index')
+const Routes=require('./routes/routes')
 
 
 // instanciar app con express
@@ -11,6 +11,7 @@ const app=express()
 
 //configuraciones
 app.set("puerto",3000)
+app.set("view engine","ejs")
 
 
 // Poner a ejecuta el servidor

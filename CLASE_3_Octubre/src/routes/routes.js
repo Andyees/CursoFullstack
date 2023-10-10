@@ -1,6 +1,6 @@
 const express=require("express")
 const router=express.Router()
-
+const funciones=require('../Functions/functions')
 
 router.get("/suma",(req,res)=>{
 
@@ -24,6 +24,13 @@ router.get("/add/:numero1/:numero2",(req,res)=>{
 router.get("/SendFilesHTML",(req,res)=>{
 
 res.sendFile("./index.html",{ root: __dirname })
+
+})
+
+router.get("/main",async(req,res)=>{
+  let usuarios= await funciones.read('Functions/data.json')
+   await res.send(usuarios)
+  //res.render("index",{Usuarios:usuarios})
 
 })
 
