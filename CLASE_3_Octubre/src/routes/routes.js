@@ -29,9 +29,9 @@ res.sendFile("./index.html",{ root: __dirname })
 
 router.get("/main",async(req,res)=>{
   let usuarios= await funciones.read('Functions/data.json')
-   await res.send(usuarios)
-  //res.render("index",{Usuarios:usuarios})
+  res.render("users",{Usuarios:usuarios})
 
 })
 
+router.post()
 module.exports=router

@@ -1,0 +1,40 @@
+<%-  include("header")  -%>
+
+
+<div class="col-md-6 container text-center">
+
+   
+      
+    <table class="table table-bordered">
+        
+      <thead>
+        <tr>
+        <th>ID</th>
+        <th>NOMBRE  </th>
+        <th>APELLIDO</th>
+        <th>EDAD    </th>
+        <th>CARGO   </th>
+        </tr>
+      </thead>
+
+      <Tbody>
+        <% for (const user of Usuarios) { %>
+
+        <tr>
+           
+         <td> <%= user.id %> </td>
+         <td> <%= user.Name %> </td>
+         <td> <%= user.Apellido %> </td>
+         <td> <%= user.Age %> </td>
+         <td> <%= user.Cargo %> </td>
+        </tr>
+        
+
+            
+        <%    } %>
+
+
+      </Tbody>
+      </table>
+    </div>
+    <%-  include("footer")  -%>
