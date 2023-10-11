@@ -33,5 +33,30 @@ router.get("/main",async(req,res)=>{
 
 })
 
-router.post()
+
+router.get("/main/addUser",(req,res)=>{
+
+  res.render("addUser")
+  
+})
+router.post("/main/addUser",async(req,res)=>{
+
+ // Leer datos Data.json 
+let usuarios= await funciones.read('Functions/data.json')
+//Ingresar usuario al Arreglo 
+await usuarios.push(req.body)
+
+//Escribir en el archivo Data.json
+let StateWriter=await funciones.write(usuarios,"Functions/data.json")
+
+//Validacion de la escritura
+  if(StateWriter){
+    console.log("El cliente fue agregado exitosamente")
+    res.redirect("/main")
+  }
+  else
+    res.sendStatus(403)
+
+})
+
 module.exports=router

@@ -15,11 +15,16 @@ async function leerdatos(ruta) {
 
 async function EscribirDatos(data,ruta){
 
-    let texto=JSON.stringify(data)
-    let Estado_Escritura=await fs.writeFileSync(ruta,texto)
-    console.log(Estado_Escritura)
+    try{
+        let texto=JSON.stringify(data)
+        let Estado_Escritura=await fs.writeFileSync(ruta,texto)
+        return true
+    }
+    catch{
+        return false
+    }
 
-
+   
 }
 
 async function ejemplo(ruta){
