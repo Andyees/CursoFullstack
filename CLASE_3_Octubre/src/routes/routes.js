@@ -59,4 +59,46 @@ let StateWriter=await funciones.write(usuarios,"Functions/data.json")
 
 })
 
+router.get("/main/DeleteUser",(req,res)=>{
+
+res.render("DeleteUser")
+
+})
+
+router.post("/main/DeleteUser",async(req,res)=>{
+
+  // Leer datos Data.json 
+ let usuarios= await funciones.read('Functions/data.json')
+ //Eliminar usuario al Arreglo 
+let IdEliminar=req.body.id
+
+const existe= usuarios.some(usuario=> usuario.id==IdEliminar)
+console.log(existe)
+if (existe) {
+  let Newusuarios= await usuarios.filter(usuario=>usuario.id!=IdEliminar)
+
+ 
+  //Escribir en el archivo Data.json
+  let StateWriter=await funciones.write(Newusuarios,"Functions/data.json")
+  
+  //Validacion de la escritura
+    if(StateWriter){
+      console.log("El cliente fue Eliminado exitosamente")
+      res.redirect("/main")
+    }
+    else{
+      res.sendStatus(403)
+  
+  }
+
+} else {
+
+res.render("DeleteUser_DontExist")
+
+  
+}})
+
+
+
+
 module.exports=router

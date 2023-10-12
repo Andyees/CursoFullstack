@@ -1,0 +1,22 @@
+<%-  include("header")  -%>
+
+<div style="padding-left: 20%; padding-right: 20%;">
+<div class="container d-flex col-md-5" > </div>
+    <div class="card-body">
+    <form action="/main/DeleteUser" method="POST">
+        <div class="form-group mb-3">
+
+            <label for="NumId" class="form-label">id</label>
+            <input name="id" id="NumId" class="form-control mb-4" type="text" placeholder="Ingrese su ID a Eliminar" aria-label="default input example" required>
+        </div>       
+    <br>
+
+    <button type="submit" class="btn btn-dark">Eliminar Usuario</button>
+    <div class="alert alert-primary" role="alert">
+        Ese ID no existe intente con otro por favor!
+      </div>
+
+
+
+
+</form>    
