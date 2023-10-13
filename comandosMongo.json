@@ -1,0 +1,7 @@
+db.Celular.insert({"nombre":"Iphone 15","marca":"Apple","Year":"2023","Color":"Negro"})
+db.Celular.insert({"nombre":"Galaxy S22","marca":"Samsung","Year":"2022","Color":"Azul"})
+
+
+
+{
+    db.Celular.find().pretty()

@@ -1,7 +1,9 @@
 const express=require("express")
 const router=express.Router()
 const funciones=require('../Functions/functions')
+const users=require("../models/user")
 
+// Endpoints no Database
 router.get("/suma",(req,res)=>{
 
     console.log(req.body) 
@@ -28,8 +30,8 @@ res.sendFile("./index.html",{ root: __dirname })
 })
 
 router.get("/main",async(req,res)=>{
-  let usuarios= await funciones.read('Functions/data.json')
-  res.render("users",{Usuarios:usuarios})
+  const ListUser=await users.find()
+  res.render("users",{Usuarios:ListUser})
 
 })
 
@@ -39,31 +41,33 @@ router.get("/main/addUser",(req,res)=>{
   res.render("addUser")
   
 })
-router.post("/main/addUser",async(req,res)=>{
-
- // Leer datos Data.json 
-let usuarios= await funciones.read('Functions/data.json')
-//Ingresar usuario al Arreglo 
-await usuarios.push(req.body)
-
-//Escribir en el archivo Data.json
-let StateWriter=await funciones.write(usuarios,"Functions/data.json")
-
-//Validacion de la escritura
-  if(StateWriter){
-    console.log("El cliente fue agregado exitosamente")
-    res.redirect("/main")
-  }
-  else
-    res.sendStatus(403)
-
-})
 
 router.get("/main/DeleteUser",(req,res)=>{
 
-res.render("DeleteUser")
+  res.render("DeleteUser")
+  
+  })
 
-})
+
+// router.post("/main/addUser",async(req,res)=>{
+
+//  // Leer datos Data.json 
+// let usuarios= await funciones.read('Functions/data.json')
+// //Ingresar usuario al Arreglo 
+// await usuarios.push(req.body)
+
+// //Escribir en el archivo Data.json
+// let StateWriter=await funciones.write(usuarios,"Functions/data.json")
+
+// //Validacion de la escritura
+//   if(StateWriter){
+//     console.log("El cliente fue agregado exitosamente")
+//     res.redirect("/main")
+//   }
+//   else
+//     res.sendStatus(403)
+
+// })
 
 router.post("/main/DeleteUser",async(req,res)=>{
 
@@ -97,6 +101,28 @@ res.render("DeleteUser_DontExist")
 
   
 }})
+
+// Endpoints DATABASE
+router.post("/main/addUser",(req,res)=>{
+
+    const userDif={"id":req.body.id,"Name":req.body.name}
+    const usuario= new users(req.body)
+    console.log(usuario)
+    usuario.save().then((data)=>{
+    console.log("el usuario fue creado exitosamente en la BD")
+    res.redirect("/main")
+
+  }).catch((err)=>{console.error(err);res.send({"status":"el usuario no pudo ser creado"})})
+
+ 
+ })
+ 
+ router.post("/main/DeleteUser",(req,res)=>{
+ 
+   
+ 
+   
+ })
 
 
 
