@@ -175,8 +175,25 @@ router.post("/main/addUser",(req,res)=>{
 
 
  })
+ 
 
+ router.get("/main/DeleteUser2/:id",async(req,res)=>{
 
+  let id=req.params.id
+  let resp=  await users.deleteOne({"id":id})
+
+    if(resp.deletedCount===0){
+
+      console.log("el usuario no existe")
+      
+    }
+
+    else{
+
+      console.log("el usuario ha sido eliminado con exito")
+      res.redirect("/main")
+    }
+  })
 
 
 module.exports=router
