@@ -10,34 +10,33 @@
 <body>
     <div class="bg-dark">
         <div class="d-flex justify-content-center row pl-3">
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark col-md-8 pl-3">
-        <div class="container-fluid">
-        
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#" data-bs-toggle="modal" data-bs-target="#RegistroModal">Registro</a>
+          <nav class="navbar navbar-expand-lg navbar-dark bg-dark col-md-8 pl-3">
+            <div class="container-fluid">
+            
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#" data-bs-toggle="modal" data-bs-target="#RegistroModal">Registro</a>
+                      </li>
+                  <li class="nav-item">
+                    <a id="Nav_TipoLibro" class="nav-link active" aria-current="page" href="/TipoLibro.html">Tipo Libro</a>
                   </li>
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Tipo Libro</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Libro</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Mis Prestamos</a>
-              </li>
-              <li class="nav-item">
-                <a id="itemSalir" class="nav-link" aria-disabled="true"  tabindex="-1">Salir</a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </nav>
-
+                  <li class="nav-item">
+                    <a id="Nav_Libro" class="nav-link" href="/libro.html">Libro</a>
+                  </li>
+                  <li class="nav-item">
+                    <a id="Nav_MisPrestamos"class="nav-link" href="/MisPrestamos.html">Mis Prestamos</a>
+                  </li>
+                  <li class="nav-item">
+                    <a id="itemSalir"  class="nav-link"   tabindex="-1">Salir</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </nav>
 
 
             <div id="divDatosUsu" style="visibility: hidden;" class="text-white d-flex justify-content-center align-items-center bg-dark col-md-2">
@@ -48,10 +47,10 @@
             </div>
     </div>
     </div>
-
+<div id="login">
     <div class="d-flex justify-content-center mt-5" id="divredes">
     <img clas="mx-4" src="img/facebook.png" width="50" height="50" alt="">
-    <img clas="mx-4" src="img/google.png" width="50" height="50" alt="">
+    <img id="AuthG" clas="mx-4" src="img/google.png" width="50" height="50" alt="">
     <img clas="mx-4" src="img/github.png" width="50" height="50" alt="">
 
     </div>
@@ -61,12 +60,14 @@
 
 
             <label for="">Ingrese su correo</label>
-            <input id="txtCorreoIngresar" class="form-control" type="text">
+            <input id="txtCorreoIngresar" class="form-control" type="text" required>
             <label for=""> Ingrese Su contraseña</label>
-            <input id="txtPassIngresar" type="password" class="form-control">
+            <input id="txtPassIngresar" type="password" class="form-control" required>
             <button id="btn-login" class="btn btn-primary mt-4">Iniciar Sesion</button>
 
         </div>
+        <div class="alert alert-danger" id="alert_Err_Login" role=" alert" style="display: none;"></div>
+      
 
 
 
@@ -90,7 +91,7 @@
             <label for=""> Correo</label>
             <input id="txtCorreo" class="form-control" placeholder="" type="email">
             <label for=""> Contraseña</label>
-            <input id="txtCorreo" class="form-control" placeholder="" type="password">
+            <input id="txtpass" class="form-control" placeholder="" type="password">
           </div>
         </div>
         <div class="modal-footer">
@@ -105,11 +106,13 @@
 
 
     </div>
+
+  </div>
 </body>
 
 
-<script src="js/generic.js"></script>
-<script src="js/Main.js"></script>
+<script type="module" src="js/generic.js"></script>
+<script type="module" src="js/Main.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
 </html>
