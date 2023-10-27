@@ -32,6 +32,7 @@ const firebaseConfig = {
                 console.log("No estamos en la pagina de logueo")
              }
             
+             document.getElementById("Registro").style.display="none"
             
             document.getElementById("Nav_TipoLibro").style.display="inline-block"
             document.getElementById("Nav_Libro").style.display="inline-block"
